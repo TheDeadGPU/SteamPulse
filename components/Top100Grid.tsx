@@ -23,9 +23,9 @@ export default function Top100Grid(props: Top100GridProps) {
 
     return (
         <div >
-            <div className="flex justify-between">
+            <div className="flex justify-between mb-2">
                 <div></div>
-                <div className="flex items-center">
+                <div className="flex items-center gap-2">
                     <p>Sort By: </p>
                     <ToggleGroup variant="outline" defaultValue={["most-played"]}>
                         <ToggleGroupItem value="most-played" aria-label="Toggle Most Played" onClick={() => setGames(current =>
@@ -54,10 +54,15 @@ export default function Top100Grid(props: Top100GridProps) {
                         )}>
                             Biggest Fallers
                         </ToggleGroupItem>
-                        <ToggleGroupItem value="alphabetical" aria-label="Toggle Alphabetical" onClick={() => setGames(current =>
+                        <ToggleGroupItem value="alphabetical-az" aria-label="Toggle Alphabetical A-Z" onClick={() => setGames(current =>
                             [...current].sort((a, b) => a.name.localeCompare(b.name))
                         )}>
                             Alphabetical (A-Z)
+                        </ToggleGroupItem>
+                        <ToggleGroupItem value="alphabetical-za" aria-label="Toggle Alphabetical Z-A" onClick={() => setGames(current =>
+                            [...current].sort((a, b) => b.name.localeCompare(a.name))
+                        )}>
+                            Alphabetical (Z-A)
                         </ToggleGroupItem>
                     </ToggleGroup>
                 </div>
