@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SteamPulse
+
+SteamPulse is a modern, responsive web dashboard built with **Next.js** that tracks and presents real-time Steam player charts, concurrent player metrics, and game trends. Designed for high performance and a native user experience, it features dynamic grid layouts, trending status badges, and instant metric updates without the overhead of a backend database.
+
+---
+
+## Features
+
+* **Live Player Analytics:** Track top games by concurrent players, 24-hour peaks, and all-time highs with localized number formatting.
+* **Steam Grid View:** A sleek, dark-mode card layout optimized for Steam 16:9 header art and intuitive visual hierarchy.
+* **Dynamic Trending Status:** Built-in indicators and badges showing rank movement and momentum week-over-week.
+* **Flexible Sorting & Filters:** Quickly sort through data using robust TypeScript sorting logic for ranks, player counts, and alphabetical order.
+* **Zero Database Architecture:** Fast, cache-revalidated data fetching leveraging Next.js capabilities for seamless real-time performance.
+
+---
+
+## Tech Stack
+
+* **Framework:** Next.js (React)
+* **Styling:** Tailwind CSS
+* **UI Components:** Shadcn/ui & Lucide Icons
+* **Language:** TypeScript
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+Make sure you have Node.js installed on your machine.
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/steampulse.git
+cd steampulse
+
+```
+
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+
+```
+
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Open [http://localhost:3000](http://localhost:3000?utm_source=gemini) with your browser to see the result.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+* `app/` - Next.js app router pages, layouts, and components.
+* `components/` - Reusable UI elements (cards, headers, filters).
+* `public/` - Static assets, branding, and favicons.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Distributed under the MIT License. See `LICENSE` for more information.
