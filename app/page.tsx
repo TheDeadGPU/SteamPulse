@@ -1,5 +1,7 @@
 import { Top100Table } from "@/components/Top100Table";
+import Top100Grid from "@/components/Top100Grid";
 import { SteamGame } from "@/types";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default async function Home() {
     async function getSteamMostPlayedGames() {
@@ -11,6 +13,7 @@ export default async function Home() {
         });
 
         const data = await res.json();
+        const updated_time = data.response.rollup_date;
         const ranks = data.response.ranks;
 
         // 2. Enrich the list with human-readable names safely
@@ -27,7 +30,10 @@ export default async function Home() {
                         const entry = storeData[key];
                         if (entry?.success && entry?.data?.name) {
                             gameName = entry.data.name;
-                            break; // Stop scanning once we found a valid game block
+                            //break; // Stop scanning once we found a valid game block
+                        }
+                        if(entry?.success && entry?.data?.header_image) {
+                            game.store_header_url = entry.data.header_image;
                         }
                     }
 
@@ -50,17 +56,27 @@ export default async function Home() {
                 }
             })
         );
-
-        console.log(enrichedGames);
-        return enrichedGames;
+        return {
+            updatedTime: updated_time,
+            games: enrichedGames,
+        };
     }
 
+    const {updatedTime, games} = await getSteamMostPlayedGames();
 
 
     return (
         <div>
-            <h1>Top Games by Most Played</h1>
-            <Top100Table steamGames={await getSteamMostPlayedGames()} />
+            <div className="flex justify-between">
+                <h1 className="text-3xl italic">SteamPulse</h1>
+                <div>
+                    <ThemeToggle />
+                </div>
+            </div>
+            
+            <h1>Top Games by Most Played - Updated {new Date(updatedTime * 1000).toLocaleDateString()}</h1>
+            
+            <Top100Grid steamGames={games} />
         </div>
     );
 }

@@ -24,6 +24,7 @@ export function Top100Table(props: Top100TableProps) {
                     <TableHead>Rank</TableHead>
                     <TableHead>Name</TableHead>
                     <TableHead>Rank Status Since Last Week</TableHead>
+                    <TableHead>Peak In-Game</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -42,6 +43,7 @@ export function Top100Table(props: Top100TableProps) {
                                 <IconActivityHeartbeat/>
                             )}
                         </TableCell>
+                        <TableCell>{game.peak_in_game}</TableCell>
                     </TableRow>
                 ))}
             </TableBody>

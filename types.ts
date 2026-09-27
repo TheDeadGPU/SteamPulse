@@ -9,4 +9,5 @@ export type SteamGame = {
     name: string;
     rank_position_status: string;
     store_url: string;
+    store_header_url: string;
 };
